@@ -31,6 +31,7 @@
 
 .heading {
     position: relative;
+    text-align: center;
     font-size: 3em;
     font-weight: 600;
     text-shadow: 0 0 5px var(--main-color);
@@ -69,6 +70,16 @@
 
 .primary-button:hover {
     box-shadow: 0 var(--secondary-color);
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0 ;
+    }
+
+    .heading {
+        font-size: 2em;
+    }
 }
 
 /* NAVBAR */
@@ -204,6 +215,7 @@ nav .navigation .fa-bars {
         height: 0;
         text-align: right;
         background-color: var(--secondary-color);
+        border-bottom: 1px solid var(--main-color);
         left: 0;
         top: 100%;
         transform: translateY(0);
@@ -300,6 +312,26 @@ main .about .box img {
     object-position: center;
 }
 
+@media screen and (max-width: 768px) {
+    main .about .box {
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+    }
+
+    main .about .box img {
+        order: -1;
+        border-radius: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main .about .box img {
+        width: 250px;
+        height: 150px;
+    }
+}
+
 /* SERVICES AND PORTFOLIO */
 main .service .wrapper,
 main .portfolio .wrapper {
@@ -315,7 +347,7 @@ main .portfolio .wrapper .card {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 270px;
     height: 440px;
     background: white;
     border: solid 2px var(--main-color);
@@ -363,7 +395,7 @@ main .portfolio .wrapper .card:hover .card-content .card-description {
 
 main .service .wrapper .card .card-content .card-header,
 main .portfolio .wrapper .card .card-content .card-header {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 600;
     letter-spacing: 0.1em;
     border-bottom: 1px solid var(--main-color);
@@ -378,6 +410,22 @@ main .portfolio .wrapper .card:hover .card-header {
 }
 
 /* NEWS */
+main .news .search-bar {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+main .news .search-bar input {
+    font-size: 1.4em;
+    padding: 2px 0 2px 12px;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 2em;
+}
+
 main .news .wrapper {
     display: flex;
     flex-direction: row;
@@ -407,6 +455,17 @@ main .news .wrapper .card .card-header {
 
 main .news .wrapper .card .card-content {
     color: var(--secondary-color);
+}
+
+@media screen and (max-width: 600px) {
+    main .news .search-bar {
+        width: 250px;
+        gap: .5em;
+    }
+
+    main .news .search-bar input {
+        font-size: .8em;
+    }
 }
 
 /* TESTIMONIAL */
