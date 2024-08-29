@@ -838,3 +838,68 @@ footer .copyright ul li a img {
 .blog-detail .blog-content .blog-description p {
     text-align: justify;
 }
+
+.blog-detail .blog-content .form-comment .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.blog-detail .blog-content .form-comment .input-box input {
+    font-size: 1em;
+    padding: 2px 0 2px 12px;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+}
+
+.blog-detail .blog-content .form-comment .comment-box {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.blog-detail .blog-content .form-comment .comment-box textarea {
+    resize: none;
+    height: 50px;
+    font-size: 1em;
+    padding: 2px 0 2px 12px;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 12px;
+}
+
+.blog-detail .blog-content .form-comment .submit {
+    display: flex;
+    justify-content: end;
+    margin-top: 1em;
+}
+
+.blog-detail .comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.blog-detail .comment-list .comment-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    background: white;
+    border-radius: 12px;
+}
+
+.blog-detail .comment-list .comment-card .comment-profile {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.blog-detail .comment-list .comment-card .comment-profile img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+}
