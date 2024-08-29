@@ -1,0 +1,13 @@
+:root {
+    --main-color: #0B132B;
+    --secondary-color: #1C2541;
+    --accent-color: #5BC0BE;
+    --another-color: #3A506B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif 'poppins';
+}
