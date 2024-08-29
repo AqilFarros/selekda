@@ -300,8 +300,9 @@ main .about .box img {
     object-position: center;
 }
 
-/* SERVICES */
-main .service .wrapper {
+/* SERVICES AND PORTFOLIO */
+main .service .wrapper,
+main .portfolio .wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -309,24 +310,29 @@ main .service .wrapper {
     gap: 2.5em;
 }
 
-main .service .wrapper .card {
+main .service .wrapper .card,
+main .portfolio .wrapper .card {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 300px;
     height: 440px;
+    background: white;
     border: solid 2px var(--main-color);
     border-radius: 8px;
     box-shadow: 4px 4px var(--main-color);
     transition: all ease-in-out .3s;
 }
 
-main .service .wrapper .card:hover {
+main .service .wrapper .card:hover,
+main .portfolio .wrapper .card:hover {
+    background: var(--main-color);
     border-color: var(--accent-color);
     box-shadow: 0 0 transparent;
 }
 
-main .service .wrapper .card .card-image img {
+main .service .wrapper .card .card-image img,
+main .portfolio .wrapper .card .card-image img {
     width: 100%;
     height: 220px;
     border-radius: 8px 8px 0 0px;
@@ -334,26 +340,29 @@ main .service .wrapper .card .card-image img {
     object-position: center;
 }
 
-main .service .wrapper .card .card-content {
+main .service .wrapper .card .card-content,
+main .portfolio .wrapper .card .card-content {
     height: 220px;
     background: white;
     border-radius: 0 0px 8px 8px;
     padding: 1em;
-    border-top: 1px solid var(--main-color);
     text-overflow: clip;
     transition: all ease-in-out .3s;
 }
 
-main .service .wrapper .card:hover .card-content {
+main .service .wrapper .card:hover .card-content,
+main .portfolio .wrapper .card:hover .card-content {
     border-color: var(--accent-color);
     background: var(--main-color);
 }
 
-main .service .wrapper .card:hover .card-content .card-description {
+main .service .wrapper .card:hover .card-content .card-description,
+main .portfolio .wrapper .card:hover .card-content .card-description {
     color: var(--secondary-color);
 }
 
-main .service .wrapper .card .card-content .card-header {
+main .service .wrapper .card .card-content .card-header,
+main .portfolio .wrapper .card .card-content .card-header {
     font-size: 1.5em;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -362,7 +371,8 @@ main .service .wrapper .card .card-content .card-header {
     transition: all ease-in-out .3s;
 }
 
-main .service .wrapper .card:hover .card-header {
+main .service .wrapper .card:hover .card-header,
+main .portfolio .wrapper .card:hover .card-header {
     color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
