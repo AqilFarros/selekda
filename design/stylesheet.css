@@ -74,7 +74,7 @@
 
 @media screen and (max-width: 600px) {
     .container {
-        padding: 0 ;
+        padding: 0;
     }
 
     .heading {
@@ -673,11 +673,26 @@ footer .copyright ul li a img {
 .blog {
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    padding: 1em 0;
 }
 
 .blog .card {
     width: 90%;
     max-width: 1000px;
+    display: flex;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    overflow: hidden;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.blog .card:hover {
+    box-shadow: 0px 0px var(--main-color);
 }
 
 .blog .card .card-image {
@@ -690,4 +705,88 @@ footer .copyright ul li a img {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-right: 1px solid var(--main-color);
+}
+
+.blog .card .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 600px;
+    padding: 1em;
+}
+
+.blog .card .card-content .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog .card .card-content .card-title h3 {
+    font-weight: 500;
+}
+
+.blog .card .card-content .card-title h5 {
+    font-weight: 500;
+}
+
+.blog .card .card-content .card-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.blog .card .card-content .card-profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+}
+
+.blog .card .card-content .card-description {
+    max-lines: 1;
+}
+
+.blog .card .card-content .card-description p {
+    text-overflow: ellipsis;
+    max-lines: 1;
+}
+
+.blog .card .card-content .card-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.blog .card .card-content .card-tag a {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+    .blog .card {
+        flex-direction: column;
+    }
+
+    .blog .card .card-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .blog .card .card-content {
+        width: 100%;
+    }
+}
+
+/* CATEGORIES */
+.category {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    width: 90%;
+    max-width: 1000px;
+    padding: 1em 0;
+    margin: 2em auto 0;
 }
