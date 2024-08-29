@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Inter", sans-serif;
     text-decoration: none;
     list-style-type: none;
     border: none;
@@ -51,7 +51,6 @@ nav .navigation .logo a {
 }
 
 nav .navigation .logo a .title {
-    font-family: "Inter", sans-serif;
     font-size: 1.8em;
     font-weight: 600;
 }
@@ -68,6 +67,26 @@ nav .navigation .link ul {
     gap: 0 8px;
 }
 
+nav .navigation .link ul li a {
+    position: relative;
+}
+
+nav .navigation .link ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 105%;
+    background: var(--main-color);
+    height: 2px;
+    width: 0%;
+    transform: translateX(-50%);
+    transition: all ease-in-out .3s;
+}
+
+nav .navigation .link ul li a:hover::before {
+    width: 100%;
+}
+
 nav .navigation .auth {
     position: absolute;
     right: 5%;
@@ -78,4 +97,25 @@ nav .navigation .auth {
 nav .navigation .auth div {
     display: flex;
     gap: 0 10px;
+}
+
+nav .navigation .auth div button {
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-weight: 500;
+    box-shadow: 1px 1px 9px var(--main-color);
+    transition: all ease-in-out .3s;
+}
+
+nav .navigation .auth div button:hover {
+    box-shadow: 1px 1px 3px var(--main-color);
+}
+
+nav .navigation .auth div button:nth-child(1) {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+nav .navigation .auth div button:nth-child(2) {
+    border: 2px solid var(--main-color);
 }
