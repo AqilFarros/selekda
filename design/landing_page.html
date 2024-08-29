@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>WebTechID</title>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
                     <h3 class="title">WebTechID</h3>
                 </a>
             </div>
-            <div class="link">
+            <div class="link" id="navigation">
                 <ul>
                     <li>
                         <a href="landing_page.html">Home</a>
@@ -34,6 +37,10 @@
                     <li>
                         <a href="admin_dashboard.html">Admin</a>
                     </li>
+                    <li class="auth">
+                        <button>Login</button>
+                        <button>Signup</button>
+                    </li>
                 </ul>
             </div>
             <div class="auth">
@@ -42,10 +49,13 @@
                     <button>Signup</button>
                 </div>
             </div>
+            <i class="fa-solid fa-bars" onclick="toggleNavbar()"></i>
         </div>
     </nav>
     <main></main>
     <footer></footer>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
