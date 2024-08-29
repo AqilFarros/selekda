@@ -408,3 +408,54 @@ main .news .wrapper .card .card-header {
 main .news .wrapper .card .card-content {
     color: var(--secondary-color);
 }
+
+/* TESTIMONIAL */
+main .testimonial .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    min-width: 300px;
+    max-width: 700px;
+}
+
+main .testimonial .box {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    min-width: 300px;
+    max-width: 700px;
+    background-color: var(--main-color);
+    padding: 1em;
+    box-shadow: 8px 8px var(--accent-color);
+    border-radius: 4px;
+    transition: all ease-in-out .3s;
+}
+
+main .testimonial .box:hover {
+    box-shadow: 0 0 var(--accent-color);
+}
+
+main .testimonial .box .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3em;
+}
+
+main .testimonial .box .profile img {
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+main .testimonial .box .profile p {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+main .testimonial .box .content p {
+    text-align: center;
+    color: var(--secondary-color);
+}
