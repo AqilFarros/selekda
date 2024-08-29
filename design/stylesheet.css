@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
-    --main-color: #0B132B;
-    --secondary-color: #1C2541;
+    --main-color: #272727;
+    --secondary-color: #f4f4f7;
     --accent-color: #5BC0BE;
     --another-color: #3A506B;
 }
@@ -9,5 +11,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif 'poppins';
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--main-color);
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--secondary-color);
+}
+
+nav .navigation {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+}
+
+nav .navigation .logo {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .navigation .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0 12px;
+}
+
+nav .navigation .logo a .title {
+    font-family: "Inter", sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+nav .navigation .link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+nav .navigation .link ul {
+    display: flex;
+    gap: 0 8px;
+}
+
+nav .navigation .auth {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .navigation .auth div {
+    display: flex;
+    gap: 0 10px;
 }
