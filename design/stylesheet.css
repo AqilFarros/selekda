@@ -466,6 +466,10 @@ main .news .wrapper .card .card-content {
     main .news .search-bar input {
         font-size: .8em;
     }
+
+    main .news .wrapper .card {
+        width: 100%;
+    }
 }
 
 /* TESTIMONIAL */
@@ -593,6 +597,7 @@ footer .footer .about h1 {
 footer .footer .about p {
     color: var(--secondary-color);
     line-height: 1.7em;
+    text-align: justify;
 }
 
 footer .footer .link ul {
@@ -646,4 +651,18 @@ footer .copyright ul li a img {
     height: 30px;
     object-fit: cover;
     object-position: center;
+}
+
+@media screen and (max-width: 600px) {
+    footer .footer {
+        flex-direction: column;
+    }
+
+    footer .footer .link ul {
+        flex-direction: row;
+    }
+
+    footer .copyright p {
+        font-size: 12px;
+    }
 }
