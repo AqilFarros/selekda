@@ -20,25 +20,55 @@
     color: var(--main-color);
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em 0;
+    margin: 2em 0;
+    padding: 0 2em;
+}
+
 .heading {
     position: relative;
     font-size: 3em;
     font-weight: 600;
+    text-shadow: 0 0 5px var(--main-color);
 }
 
 .heading::before {
     content: '';
     position: absolute;
     width: 40%;
-    height: 2px;
+    height: 4px;
     top: 105%;
     left: 50%;
     background-color: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-color);
+    border-radius: 20px;
     transform: translate(-50%);
 }
 
 .highlight {
     color: var(--accent-color);
+}
+
+.heading .highlight {
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+.primary-button {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 300;
+    box-shadow: 0 0 7px var(--secondary-color);
+    transition: all ease-in-out .3s;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+.primary-button:hover {
+    box-shadow: 0 var(--secondary-color);
 }
 
 /* NAVBAR */
@@ -49,6 +79,8 @@ nav {
     width: 100%;
     height: 70px;
     background-color: var(--secondary-color);
+    box-shadow: 0 -2px 20px var(--main-color);
+    z-index: 10;
 }
 
 nav .navigation {
@@ -214,6 +246,8 @@ main {
     border-radius: 12px;
 }
 
+/* BANNER */
+
 main .banner {
     position: relative;
     display: flex;
@@ -242,23 +276,125 @@ main .banner h3 {
     font-weight: 500;
 }
 
-main .banner a {
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-weight: 300;
-    box-shadow: 0 0 7px var(--secondary-color);
-    transition: all ease-in-out .3s;
+/* ABOUT */
+main .about .box {
+    display: flex;
+    align-items: center;
     background-color: var(--main-color);
+    box-shadow: 0 4px 12px var(--main-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+main .about .box p {
+    margin: 0 1em;
+    text-align: justify;
+    color: var(--secondary-color);
+    line-height: 2em;
+}
+
+main .about .box img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* SERVICES */
+main .service .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5em;
+}
+
+main .service .wrapper .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 440px;
+    border: solid 2px var(--main-color);
+    border-radius: 8px;
+    box-shadow: 4px 4px var(--main-color);
+    transition: all ease-in-out .3s;
+}
+
+main .service .wrapper .card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 transparent;
+}
+
+main .service .wrapper .card .card-image img {
+    width: 100%;
+    height: 220px;
+    border-radius: 8px 8px 0 0px;
+    object-fit: cover;
+    object-position: center;
+}
+
+main .service .wrapper .card .card-content {
+    height: 220px;
+    background: white;
+    border-radius: 0 0px 8px 8px;
+    padding: 1em;
+    border-top: 1px solid var(--main-color);
+    text-overflow: clip;
+    transition: all ease-in-out .3s;
+}
+
+main .service .wrapper .card:hover .card-content {
+    border-color: var(--accent-color);
+    background: var(--main-color);
+}
+
+main .service .wrapper .card:hover .card-content .card-description {
     color: var(--secondary-color);
 }
 
-main .banner a:hover {
-    box-shadow: 0 var(--secondary-color);
+main .service .wrapper .card .card-content .card-header {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--main-color);
+    margin-bottom: 4px;
+    transition: all ease-in-out .3s;
 }
 
-/* ABOUT */
-main .about {
+main .service .wrapper .card:hover .card-header {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* NEWS */
+main .news .wrapper {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em 0.5em;
+}
+
+main .news .wrapper .card {
+    width: 45%;
+    padding: 1em;
+    background: var(--main-color);
+    box-shadow: 4px 4px var(--accent-color);
+    border-radius: 4px;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+main .news .wrapper .card:hover {
+    box-shadow: 0 0 var(--accent-color);
+}
+
+main .news .wrapper .card .card-header {
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+
+main .news .wrapper .card .card-content {
+    color: var(--secondary-color);
 }
