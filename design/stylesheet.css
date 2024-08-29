@@ -2,8 +2,8 @@
 
 :root {
     --main-color: #272727;
-    --secondary-color: #f4f4f7;
-    --accent-color: #5BC0BE;
+    --secondary-color: #f9f9f9;
+    --accent-color: #6cd4d2;
     --another-color: #3A506B;
 }
 
@@ -35,6 +35,7 @@ nav .navigation {
     max-width: 1440px;
     width: 100%;
     height: 100%;
+    margin: 0 auto;
 }
 
 nav .navigation .logo {
@@ -180,4 +181,71 @@ nav .navigation .fa-bars {
     nav .navigation .auth {
         display: none;
     }
+}
+
+/* MAIN */
+main {
+    background-color: var(--secondary-color);
+    padding-bottom: 1.2em;
+    width: 95%;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 12px;
+}
+
+main .banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px 0;
+    padding: 3.8em 0 2em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.173), rgba(0, 0, 0, 0.978)), url(assets/images/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px 12px 0 12px;
+    overflow: hidden;
+}
+
+main .banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.173), rgba(0, 0, 0, 0.978)), url(assets/images/banner.jpg);
+}
+
+main .banner h1 {
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+main .banner h1 .highlight {
+    color: var(--accent-color);
+}
+
+main .banner h3 {
+    color: var(--secondary-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+main .banner a {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 300;
+    box-shadow: 0 0 7px var(--secondary-color);
+    transition: all ease-in-out .3s;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+main .banner a:hover {
+    box-shadow: 0 var(--secondary-color);
 }
