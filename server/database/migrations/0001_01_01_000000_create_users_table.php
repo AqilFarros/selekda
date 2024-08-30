@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('birth');
             $table->integer('phone');
             $table->string('picture');
+            $table->string('role')->default('user');
             $table->date('date');
             $table->rememberToken();
             $table->timestamps();
