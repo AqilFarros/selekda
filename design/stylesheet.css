@@ -414,7 +414,8 @@ main .portfolio .wrapper .card:hover .card-header {
 }
 
 /* NEWS */
-main .news .search-bar {
+main .news .search-bar,
+.search-bar {
     width: 300px;
     display: flex;
     justify-content: center;
@@ -422,7 +423,8 @@ main .news .search-bar {
     gap: 1em;
 }
 
-main .news .search-bar input {
+main .news .search-bar input,
+.search-bar input {
     font-size: 1.4em;
     padding: 2px 0 2px 12px;
     background: var(--secondary-color);
@@ -462,12 +464,14 @@ main .news .wrapper .card .card-content {
 }
 
 @media screen and (max-width: 600px) {
-    main .news .search-bar {
+    main .news .search-bar,
+    .search-bar {
         width: 250px;
         gap: .5em;
     }
 
-    main .news .search-bar input {
+    main .news .search-bar input,
+    .search-bar input {
         font-size: .8em;
     }
 
@@ -917,7 +921,7 @@ aside {
     position: fixed;
     z-index: 5;
     top: 70px;
-    left: -30%;
+    left: -100%;
     height: calc(100% - 70px);
     max-width: 700px;
     min-width: 320px;
@@ -951,4 +955,39 @@ aside ul li a {
 aside ul li a:hover {
     background: var(--secondary-color);
     box-shadow: 4px 4px var(--main-color);
+}
+
+main .admin {
+    padding: 1em;
+    margin: 0 auto;
+}
+
+main .admin .search {
+    display: flex;
+    justify-content: center;
+}
+
+main .admin .wrapper {
+    overflow-x: auto;
+}
+
+main .admin .wrapper table {
+    border-collapse: collapse;
+    margin: 1em auto;
+}
+
+main .admin .wrapper table th,
+main .admin .wrapper table td {
+    border: 1px solid var(--main-color);
+    text-align: center;
+    width: fit-content;
+    padding: 8px 12px;
+}
+
+main .admin .wrapper table td img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
 }
