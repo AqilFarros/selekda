@@ -105,6 +105,9 @@ nav .navigation {
 
 nav .navigation .logo {
     position: absolute;
+    display: flex;
+    align-items: center;
+    gap: .5em;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
@@ -195,7 +198,7 @@ nav .navigation .link ul .auth button:nth-child(2) {
     border: 2px solid var(--main-color);
 }
 
-nav .navigation .fa-bars {
+nav .navigation .navbar-toggle {
     position: absolute;
     font-size: 1.8em;
     color: var(--main-color);
@@ -206,7 +209,7 @@ nav .navigation .fa-bars {
 }
 
 @media screen and (max-width:768px) {
-    nav .navigation .fa-bars {
+    nav .navigation .navbar-toggle {
         display: block;
         cursor: pointer;
     }
@@ -902,4 +905,50 @@ footer .copyright ul li a img {
     object-fit: cover;
     object-position: center;
     border-radius: 100%;
+}
+
+/* ADMIN SIDEBAR */
+.sidebar-toggle {
+    cursor: pointer;
+    font-size: 1.8em;
+}
+
+aside {
+    position: fixed;
+    z-index: 5;
+    top: 70px;
+    left: -30%;
+    height: calc(100% - 70px);
+    max-width: 700px;
+    min-width: 320px;
+    padding: 1em;
+    background: var(--secondary-color);
+    border-right: 1px solid var(--main-color);
+    transition: all ease-in-out .3s;
+}
+
+aside.active {
+    left: 0;
+}
+
+aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+aside ul li a {
+    display: inline-block;
+    width: 100%;
+    padding: .5em .4em;
+    font-weight: 500;
+    background-color: white;
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    transition: all ease-in-out .3s;
+}
+
+aside ul li a:hover {
+    background: var(--secondary-color);
+    box-shadow: 4px 4px var(--main-color);
 }
