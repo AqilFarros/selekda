@@ -1,0 +1,42 @@
+.box-image {
+    display: flex;
+    align-items: center;
+    background-color: var(--main-color);
+    box-shadow: 0 4px 12px var(--main-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.box-image p {
+    margin: 0 1em;
+    text-align: justify;
+    color: var(--secondary-color);
+    line-height: 2em;
+}
+
+.box-image img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .box-image {
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .box-image img {
+        order: -1;
+        border-radius: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box-image img {
+        width: 250px;
+        height: 150px;
+    }
+}

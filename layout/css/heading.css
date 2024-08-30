@@ -1,0 +1,31 @@
+.heading {
+    position: relative;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px var(--main-color);
+}
+
+.heading::before {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 4px;
+    top: 105%;
+    left: 50%;
+    background-color: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-color);
+    border-radius: 20px;
+    transform: translate(-50%);
+}
+
+.heading .highlight {
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+@media screen and (max-width: 600px) {
+    .heading {
+        font-size: 2em;
+    }
+}

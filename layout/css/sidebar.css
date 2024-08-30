@@ -1,0 +1,39 @@
+aside {
+    position: fixed;
+    z-index: 5;
+    top: 70px;
+    left: -0%;
+    height: calc(100% - 70px);
+    max-width: 700px;
+    min-width: 320px;
+    padding: 1em;
+    background: var(--secondary-color);
+    border-right: 1px solid var(--main-color);
+    transition: all ease-in-out .3s;
+}
+
+aside.active {
+    left: 0;
+}
+
+aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+aside ul li a {
+    display: inline-block;
+    width: 100%;
+    padding: .5em .4em;
+    font-weight: 500;
+    background-color: white;
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    transition: all ease-in-out .3s;
+}
+
+aside ul li a:hover {
+    background: var(--secondary-color);
+    box-shadow: 4px 4px var(--main-color);
+}

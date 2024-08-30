@@ -1,0 +1,28 @@
+.card-text {
+    width: 45%;
+    padding: 1em;
+    background: var(--main-color);
+    box-shadow: 4px 4px var(--accent-color);
+    border-radius: 4px;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.card-text:hover {
+    box-shadow: 0 0 var(--accent-color);
+}
+
+.card-text .card-header {
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+
+.card-text .card-content {
+    color: var(--secondary-color);
+}
+
+@media screen and (max-width: 600px) {
+    .card-text {
+        width: 100%;
+    }
+}

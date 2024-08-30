@@ -1,0 +1,172 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 -2px 20px var(--main-color);
+    z-index: 10;
+}
+
+nav .navigation {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+nav .navigation .logo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .navigation .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0 12px;
+}
+
+nav .navigation .logo a .title {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+nav .navigation .link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+nav .navigation .link ul {
+    display: flex;
+    gap: 0 8px;
+}
+
+nav .navigation .link ul li a {
+    position: relative;
+    font-weight: 500;
+}
+
+nav .navigation .link ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 105%;
+    background: var(--main-color);
+    height: 2px;
+    width: 0%;
+    transform: translateX(-50%);
+    transition: all ease-in-out .3s;
+}
+
+nav .navigation .link ul li a:hover::before {
+    width: 100%;
+}
+
+nav .navigation .link ul .auth {
+    display: none;
+}
+
+nav .navigation>.auth {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .navigation .auth div {
+    display: flex;
+    gap: 0 10px;
+}
+
+nav .navigation .auth div button,
+nav .navigation .link ul .auth button {
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-weight: 500;
+    box-shadow: 1px 1px 9px var(--main-color);
+    transition: all ease-in-out .3s;
+}
+
+nav .navigation .auth div button:hover,
+nav .navigation .auth button:hover {
+    box-shadow: 1px 1px 3px var(--main-color);
+}
+
+nav .navigation .auth div button:nth-child(1),
+nav .navigation .link ul .auth button:nth-child(1) {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+nav .navigation .auth div button:nth-child(2),
+nav .navigation .link ul .auth button:nth-child(2) {
+    border: 2px solid var(--main-color);
+}
+
+nav .navigation .navbar-toggle {
+    position: absolute;
+    font-size: 1.8em;
+    color: var(--main-color);
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.sidebar-toggle {
+    cursor: pointer;
+    font-size: 1.8em;
+}
+
+@media screen and (max-width:768px) {
+    nav .navigation .navbar-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav .navigation .link {
+        width: 100%;
+        height: 0;
+        text-align: right;
+        background-color: var(--secondary-color);
+        border-bottom: 1px solid var(--main-color);
+        left: 0;
+        top: 100%;
+        transform: translateY(0);
+        transition: all ease-in-out 0.5;
+        overflow: hidden;
+    }
+
+    nav .navigation .link.active {
+        height: fit-content;
+        padding: 5px 0 10px;
+    }
+
+    nav .navigation .link ul {
+        flex-direction: column;
+        gap: 10px 0;
+    }
+
+    nav .navigation .link ul li {
+        margin-right: 5%;
+    }
+
+    nav .navigation .link ul .auth {
+        display: flex;
+        justify-content: end;
+        gap: 0 10px;
+    }
+
+    nav .navigation .auth {
+        display: none;
+    }
+}

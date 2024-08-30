@@ -1,0 +1,35 @@
+.form .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.form .input-box input {
+    font-size: 1em;
+    padding: 2px 0 2px 12px;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+}
+
+.form .textarea-box {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.form .textarea-box textarea {
+    resize: none;
+    height: 50px;
+    font-size: 1em;
+    padding: 2px 0 2px 12px;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 12px;
+}
+
+.form .submit {
+    display: flex;
+    justify-content: end;
+    margin-top: 1em;
+}
