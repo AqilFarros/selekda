@@ -1,0 +1,27 @@
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px 0;
+    padding: 3.8em 0 2em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.173), rgba(0, 0, 0, 0.978)), url("../../design/assets/images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px 12px 0 12px;
+    overflow: hidden;
+}
+
+.banner h1 {
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.banner h3 {
+    color: var(--secondary-color);
+    text-align: center;
+    font-weight: 500;
+}

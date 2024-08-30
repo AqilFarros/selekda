@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em 0;
+    margin: 2em 0;
+    padding: 0 2em;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+}

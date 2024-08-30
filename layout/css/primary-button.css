@@ -1,0 +1,13 @@
+.primary-button {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 300;
+    box-shadow: 0 0 7px var(--secondary-color);
+    transition: all ease-in-out .3s;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+.primary-button:hover {
+    box-shadow: 0 var(--secondary-color);
+}
