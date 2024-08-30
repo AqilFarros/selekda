@@ -25,10 +25,18 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 Route::get('/users', [UserController::class, 'getUsers'])->middleware(['auth:sanctum', 'admin']);
 
-Route::middleware(['auth:sanctum', 'admin'])->resource('/banner', BannerController::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/about', AboutController::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/achivement', Achivement::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/blog', BlogController::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/image-gallery', ImageGallery::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/news', NewsController::class);
-Route::middleware(['auth:sanctum', 'admin'])->resource('/service', ServiceController::class);
+Route::middleware(['auth:sanctum', 'admin'])->get('/get-users', [UserController::class]);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/banner', BannerController::class)->only(['store', 'update', 'delete']);
+Route::resource('/banner', BannerController::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/about', AboutController::class)->only(['store', 'update', 'delete']);
+Route::resource('/about', AboutController::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/achivement', Achivement::class)->only(['store', 'update', 'delete']);
+Route::resource('/achivement', Achivement::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/blog', BlogController::class)->only(['store', 'update', 'delete']);
+Route::resource('/blog', BlogController::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/image-gallery', ImageGallery::class)->only(['store', 'update', 'delete']);
+Route::resource('/image-gallery', ImageGallery::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/news', NewsController::class)->only(['store', 'update', 'delete']);
+Route::resource('/news', NewsController::class)->only(['index', 'show']);
+Route::middleware(['auth:sanctum', 'admin'])->resource('/service', ServiceController::class)->only(['store', 'update', 'delete']);
+Route::resource('/service', ServiceController::class)->only(['index', 'show']);

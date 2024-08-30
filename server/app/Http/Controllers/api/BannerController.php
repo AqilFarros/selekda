@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        try {
+            $banner = Banner::latest()->get();
+            return ResponseFormatter::success($banner, 'List Data Of banner');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Get banner Data Failed', 500);
+        }
     }
 
     /**
@@ -28,7 +28,26 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+            $image = $request->file('image');
+            $image->storeAs('public/banner', $image->hashName());
+
+            $data = $request->all();
+            $data['image'] = $image->hashName();
+
+            $banner = Banner::create($data);
+
+            return ResponseFormatter::success($banner, 'banner Successfully Created');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Failed To Store banner', 500);
+        }
     }
 
     /**
@@ -36,15 +55,15 @@ class BannerController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        try {
+            $banner = Banner::findOrFail($id);
+            return ResponseFormatter::success($banner, 'banner Data');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Get Data banner Failed', 500);
+        }
     }
 
     /**
@@ -52,7 +71,34 @@ class BannerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $request->validate([
+                'image' => 'image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+            $banner = Banner::findOrFail($id);
+
+            $data = $request->all();
+
+            if ($request->file('image') == '') {
+                $banner->update($data);
+            } else {
+                Storage::disk('local')->delete('public/banner/' . basename($banner->image));
+
+                $image = $request->file('image');
+                $image->storeAs('public/banner', $image->hashName());
+                $data['image'] = $image->hashName();
+
+                $banner->update($data);
+            }
+
+            return ResponseFormatter::success($banner, 'banner Data Has Been Successfully Updated');
+        } catch (\Exception $th) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $th,
+            ], 'Failed To Store banner', 500);
+        }
     }
 
     /**
@@ -60,6 +106,19 @@ class BannerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $banner = Banner::findOrFail($id);
+
+            Storage::disk('local')->delete('public/banner/' . basename($banner->image));
+
+            $banner->delete();
+
+            return ResponseFormatter::success(null, 'banner Data Has Been Successfully Deleted');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Failed To Delete Data');
+        }
     }
 }
