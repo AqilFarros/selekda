@@ -15,6 +15,14 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/register', [UserController::class, 'register']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/logout', [UserController::class, 'logout']);
+    Route::post('/updateProfile', [UserController::class, 'updateProfile']);
+});
+
 Route::get('/users', [UserController::class, 'getUsers'])->middleware(['auth:sanctum', 'admin']);
 
 Route::middleware(['auth:sanctum', 'admin'])->resource('/banner', BannerController::class);

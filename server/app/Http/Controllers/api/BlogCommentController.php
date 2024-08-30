@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogCommentController extends Controller
 {
@@ -12,15 +15,15 @@ class BlogCommentController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        try {
+            $blog = Blog::latest()->get();
+            return ResponseFormatter::success($blog, 'List Data Of Blog');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Get Blog Data Failed', 500);
+        }
     }
 
     /**
@@ -28,7 +31,30 @@ class BlogCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required|unique:blogs',
+                'description' => 'required',
+                'author' => 'required',
+                'tag' => 'required',
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+            $image = $request->file('image');
+            $image->storeAs('public/blog', $image->hashName());
+
+            $data = $request->all();
+            $data['image'] = $image->hashName();
+
+            $blog = Blog::create($data);
+
+            return ResponseFormatter::success($blog, 'Blog Successfully Created');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Failed To Store Blog', 500);
+        }
     }
 
     /**
@@ -36,15 +62,15 @@ class BlogCommentController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        try {
+            $blog = Blog::findOrFail($id);
+            return ResponseFormatter::success($blog, 'Blog Data');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Get Data Blog Failed', 500);
+        }
     }
 
     /**
@@ -52,7 +78,38 @@ class BlogCommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required|unique:blogs',
+                'description' => 'required',
+                'author' => 'required',
+                'tag' => 'required',
+                'image' => 'image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+            $blog = Blog::findOrFail($id);
+
+            $data = $request->all();
+
+            if ($request->file('image') == '') {
+                $blog->update($data);
+            } else {
+                Storage::disk('local')->delete('public/blog/' . basename($blog->image));
+
+                $image = $request->file('image');
+                $image->storeAs('public/blog', $image->hashName());
+                $data['image'] = $image->hashName();
+
+                $blog->update($data);
+            }
+
+            return ResponseFormatter::success($blog, 'Blog Data Has Been Successfully Updated');
+        } catch (\Exception $th) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $th,
+            ], 'Failed To Store Blog', 500);
+        }
     }
 
     /**
@@ -60,6 +117,19 @@ class BlogCommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $blog = Blog::findOrFail($id);
+
+            Storage::disk('local')->delete('public/blog/' . basename($blog->image));
+
+            $blog->delete();
+
+            return ResponseFormatter::success(null, 'Blog Data Has Been Successfully Deleted');
+        } catch (\Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something Went Wrong',
+                'error' => $error
+            ], 'Failed To Delete Data');
+        }
     }
 }
